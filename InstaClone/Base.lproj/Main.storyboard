@@ -91,14 +91,65 @@
                     <view key="view" contentMode="scaleToFill" id="zeN-Ih-UYt">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selectImage" highlightedImage="selectImage" translatesAutoresizingMaskIntoConstraints="NO" id="82P-Sl-jQB">
+                                <rect key="frame" x="76" y="102" width="241" height="319"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="241" id="87A-Np-Vfc"/>
+                                    <constraint firstAttribute="height" constant="319" id="t2l-ks-01t"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Comment" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wNq-Bi-ekL">
+                                <rect key="frame" x="16" y="469" width="361" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="HhR-RQ-mw7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iJ4-hY-rWF">
+                                <rect key="frame" x="152" y="592" width="89" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="Qdz-sc-l4z"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Upload" cornerStyle="medium">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="strokeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </backgroundConfiguration>
+                                    <color key="baseForegroundColor" systemColor="tintColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="saveClicked:" destination="eaz-Nf-s7B" eventType="touchUpInside" id="LDY-VV-Z9J"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Be8-WF-4yu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="wNq-Bi-ekL" firstAttribute="leading" secondItem="zeN-Ih-UYt" secondAttribute="leadingMargin" id="296-4j-TR8"/>
+                            <constraint firstItem="wNq-Bi-ekL" firstAttribute="centerX" secondItem="iJ4-hY-rWF" secondAttribute="centerX" id="OSW-AW-hDC"/>
+                            <constraint firstItem="82P-Sl-jQB" firstAttribute="top" secondItem="Be8-WF-4yu" secondAttribute="top" constant="43" id="PeT-gL-WGk"/>
+                            <constraint firstItem="Be8-WF-4yu" firstAttribute="bottom" secondItem="iJ4-hY-rWF" secondAttribute="bottom" constant="134" id="Ri6-l5-5SQ"/>
+                            <constraint firstItem="wNq-Bi-ekL" firstAttribute="trailing" secondItem="zeN-Ih-UYt" secondAttribute="trailingMargin" id="TcP-A5-600"/>
+                            <constraint firstItem="wNq-Bi-ekL" firstAttribute="top" secondItem="82P-Sl-jQB" secondAttribute="bottom" constant="48" id="YoK-xt-SWE"/>
+                            <constraint firstItem="iJ4-hY-rWF" firstAttribute="leading" secondItem="Be8-WF-4yu" secondAttribute="leading" constant="152" id="bRD-go-rjb"/>
+                            <constraint firstItem="82P-Sl-jQB" firstAttribute="leading" secondItem="Be8-WF-4yu" secondAttribute="leading" constant="76" id="giw-sB-ERU"/>
+                            <constraint firstItem="iJ4-hY-rWF" firstAttribute="top" secondItem="wNq-Bi-ekL" secondAttribute="bottom" constant="89" id="l6b-Aa-Vpr"/>
+                            <constraint firstItem="82P-Sl-jQB" firstAttribute="centerX" secondItem="wNq-Bi-ekL" secondAttribute="centerX" id="ycv-g7-pT8"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Upload" image="u.square.fill" catalog="system" id="hQy-yA-1AP"/>
+                    <connections>
+                        <outlet property="commentTexfield" destination="wNq-Bi-ekL" id="mgZ-Ey-Swj"/>
+                        <outlet property="selectedImage" destination="82P-Sl-jQB" id="ZiU-3r-Sxj"/>
+                        <outlet property="uploadButton" destination="iJ4-hY-rWF" id="VRu-8Q-K6C"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="moA-EQ-cOx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1248" y="167"/>
+            <point key="canvasLocation" x="1246.5648854961833" y="166.90140845070422"/>
         </scene>
         <!--Settings-->
         <scene sceneID="Grl-db-yvg">
@@ -174,9 +225,13 @@
     <resources>
         <image name="f.square.fill" catalog="system" width="128" height="114"/>
         <image name="s.square.fill" catalog="system" width="128" height="114"/>
+        <image name="selectImage" width="142.5" height="137.5"/>
         <image name="u.square.fill" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
